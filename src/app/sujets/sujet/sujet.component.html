@@ -1,0 +1,42 @@
+<form #sujetForm="ngForm" (ngSubmit)="onSubmit(sujetForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="sujetService.sujetSelectione.$key">
+
+<div class="form-group">
+    <label>Title</label>
+
+    <div class="input-group">
+    <div class="input-group-addon">
+        <i class="fa fa-calendar"></i>
+      </div>
+  <input type="text" name ="title" class="form-control" #title="ngModel" [(ngModel)]="sujetService.title" placeholder="Titre du sujet" required>
+</div></div>
+
+<div class="form-group">
+  <label>Description</label>
+  <div class="input-group">
+  <div class="input-group-addon">
+      <i class="fa fa-pencil"></i>
+    </div>
+  <textarea name ="description" class="form-control" #description="ngModel" [(ngModel)]="sujetService.description" placeholder="Description du sujet"></textarea>
+</div></div>
+
+<div class="form-group">
+    <label>Image src</label>
+  <div class="input-group">
+    <div class="input-group-addon">
+      <i class="fa fa-image"></i>
+    </div>
+    <input name ="imgsrc" class="form-control" #imgsrc="ngModel" [(ngModel)]="sujetService.imgsrc" placeholder="Image pour sujet">
+  </div>
+</div>
+
+<div class="form-group">
+  <!-- disable button when form not valid -->
+    <button class="btn btn-default" type="submit" [disabled]="!sujetForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Ajouter</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(sujetForm)">
+      <i class="fa fa-repeat"></i>
+       Annuler</button>
+  </div>
+</form>
